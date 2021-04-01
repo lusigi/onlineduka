@@ -1,7 +1,10 @@
 .header {
-  background-color: #a2a8b1;
+  background-color: black;
   display: flex;
   align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 .header__logo {
@@ -40,4 +43,27 @@
 .header__option {
   display: flex;
   flex-direction: column;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.header__optionLineOne {
+  font-size: 10px;
+}
+
+.header__optionLineTwo {
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.header__optionBasket {
+  display: flex;
+  align-items: center;
+}
+.cart__icon {
+  color: white;
+}
+
+.header__basketCount {
+  margin: 0 10px 0 6px;
 }

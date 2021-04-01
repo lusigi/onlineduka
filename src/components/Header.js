@@ -3,8 +3,12 @@ import "./Header.css";
 import logo from "../images/logo.png";
 import { Link } from "react-router-dom";
 import SearchIcon from "@material-ui/icons/Search";
+import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
+import { SportsBasketball } from "@material-ui/icons";
+import { useStateValue } from "../StateProvider";
 
 function Header() {
+  const [{ basket }, dispatch] = useStateValue();
   return (
     <nav className="header">
       <Link to="/">
@@ -18,24 +22,31 @@ function Header() {
       <div className="header__nav">
         <Link to="/login" className="header__link">
           <div className="header__option">
-            <span>Hello,</span>
-            <span>Sign In </span>
+            <span className="header__optionLineOne">Hello,</span>
+            <span className="header__optionLineTwo">Sign In </span>
           </div>
         </Link>
         <Link to="/" className="header__link">
           <div className="header__option">
-            <span>Returns</span>
-            <span>& Orders </span>
+            <span className="header__optionLineOne">Returns</span>
+            <span className="header__optionLineTwo">& Orders </span>
           </div>
         </Link>
         <Link to="/" className="header__link">
           <div className="header__option">
-            <span>Your</span>
-            <span>Prime </span>
+            <span className="header__optionLineOne">Your</span>
+            <span className="header__optionLineTwo">Prime </span>
           </div>
         </Link>
       </div>
-      {/*cart */}
+      <Link to="/checkout" className="header__link">
+        <div className="header__optionBasket">
+          <ShoppingCartIcon className="cart__icon" />
+          <span className="header__optionLineTwo header__basketCount">
+            {basket?.length}
+          </span>
+        </div>
+      </Link>
     </nav>
   );
 }
